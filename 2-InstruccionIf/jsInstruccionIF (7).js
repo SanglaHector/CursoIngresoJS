@@ -10,7 +10,7 @@ function mostrar()
 
     edad = parseInt(edad);
 
-    if ( edad < 18 && estadoCivil == "Soltero" ) {
+    if ( edad < 18 && estadoCivil != "Soltero" ) {
         alert("Usted es muy joven para NO estar soltero.");
 }
 
