@@ -33,6 +33,8 @@ function mostrar()
 	}else if(numero > 0){
 		contadorDePositivos ++ ;
 		positivo = positivo + numero;
+	}else if(numero == 0){
+		contadorDeCeros ++ ;
 	}
 	
 
