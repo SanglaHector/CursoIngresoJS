@@ -9,49 +9,82 @@ F.	Nacionalidad, “A” para argentinos, “E” para extranjeros, “N” para
  */
 function ComenzarIngreso () 
 {   
-    var edad = prompt("ingrese su edad");
-    var sexo = prompt("Ingrese m para masculino o f para femenino");
-    var estadoCivil = prompt("ingrese el numero 1 para indicar que esta soltero, 2 para casado , 3 para divorciado o 4 para viudo");
-    var SueldoBruto = prompt("Ingrese su sueldo bruto");
-    var legajo = prompt("Ingrese su numero de legajo, numerorico de 4 cifras y sin ceros a la izquierda");
-    var nacionalidad = prompt("Indique con una A si es argentino, E si es extranjero o N si es nacionalizado"); 
+    var edad;
+    var sexo;
+    var estadoCivil;
+    var sueldoBruto ;
+    var legajo ;
+    var nacionalidad;
     
+    edad = prompt("Ingrese su edad.")
     edad = parseInt(edad);
+    
+    while(edad < 18 || edad > 90 ) {
+        edad = prompt( "Su edad debe ser de entre 18 y 90 años inclusive");
+        edad = parseInt(edad);
+    }
+    document.getElementById("Edad").value = edad; 
+
+    sexo = prompt("Ingrese f para femenino o m para masculino");
+    while ( sexo != "f" && sexo != "m" ){
+        sexo = prompt("Ingrese f para femenino o m para masculino.")
+    }
+            if ( sexo == "f"){
+                document.getElementById("Sexo").value =  "Femenino";
+            } else {
+                document.getElementById("Sexo").value = "Masculino";
+            }
+
+    estadoCivil = prompt("Elija 1 para soltero, 2 para casado, 3 para divorciado o 4 para viudo.")
+    while ( estadoCivil != "1" && estadoCivil != "2" && estadoCivil != "3" && estadoCivil != "4"){
+        estadoCivil = prompt("Por favor ingrese una opcion correcta. 1 para soltero , 2 para casado, 3 para divorciado o 4 para viudo");
+    }
+        switch ( estadoCivil){
+            case "1":
+                document.getElementById("EstadoCivil").value = "Soltero";
+                break;
+            case "2":
+                document.getElementById("EstadoCivil").value = "Casado";
+                break;
+            case "3":
+                document.getElementById("EstadoCivil").value = "Divorciado";
+                break;
+            case "4":
+                document.getElementById("EstadoCivil").value = "Viudo";
+                break;
+        }
+                
+    sueldoBruto = prompt("Ingrese su sueldo bruto");
     sueldoBruto = parseInt(sueldoBruto);
 
-    while( edad ){
-        if (edad >= 18 && edad <=90){
-            document.getElementById("Edad").value = edad;
-        }
-        else {
-            document.getElementById("Edad").value = "Usted no esta dentro de la franja de edad."
-        }
+    while ( sueldoBruto < 8000){
+        sueldoBruto = prompt("Su sueldo no alcanza los 8mil pesos, por favor ingrese un sueldo valido, mayor  igual a 8000$.");
+        sueldoBruto = parseInt(sueldoBruto);
     }
-    
-    
-    while ( sexo ){
-        if ( sexo == "f" || sexo == "m"){
-            document.getElementById("Sexo").value = sexo
-        }
-        else {
-            sexo = prompt("Por favor, ingrese una letra valida. f para femenino o m para masculino"); 
-        }
-    }
- 
+    document.getElementById("Sueldo").value = sueldoBruto + "$";
 
-    while (estadoCivil){
-        if( estadoCivil == "1" || estadoCivil == "2" || estadoCivil == "3" || estadoCivil == "4"){
-            switch(estadoCivil){
-                case "1":
-                document.getElementById("EstadoCivil").value == "Soltero";
-                case "2":
-                document.getElementById("EstadoCivil").value = "Casado";
-                case "3":
-                document.getElementById("EstadoCivil").value = "Divorciado";
-                case "4":
-                document.getElementById("EstadoCivil").value = "Viudo";
-                
-            }
-        }
+    legajo = prompt("Ingrese su numero de legajo de 4 cifras y sin ceros a la izquierda");
+    legajo = parseInt(legajo);
+    while ( legajo < 1000 || legajo > 9999){
+        legajo = prompt("Ingrese un numero de 4 cifras valido.");
+        legajo = parseInt (legajo);
     }
+    document.getElementById("Legajo").value = legajo;   
+
+    nacionalidad = prompt (" Ingrese A si usted es Argentino, ingrese E si usted es extrangejo y ingrese N si usted es nacionalizado.");
+    while ( nacionalidad != " A" && nacionalidad != "E" && nacionalidad != "N"){
+    nacionalidad = prompt( "Ingrese una letra correcta. A para Argentino, E para extrangero o N para nacionalizado.");
 }
+    switch ( nacionalidad ){
+        case "A":
+            document.getElementById("Nacionalidad").value = "Argentino";
+            break;
+        case "E":
+            document.getElementById("Nacionalidad").value = "Extrangero";
+            break;
+        case "N":
+            document.getElementById("Nacionalidad").value = "Nacionalizado";
+            break;
+    }
+
+        }
