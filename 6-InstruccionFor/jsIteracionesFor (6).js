@@ -1,12 +1,12 @@
-function mostrar()
-{
-    var contadorUno = 0;
-    var cajon = 0;
+function mostrar(){
+  var num;
+  var contadorDePares = 0;
 
-for ( cant = prompt("Ingrese un numero"); cant<100000000000;){
-    cant = parseInt(cant);
-    
-    }
-      
+  num = prompt("ingrese un numero");
 
-}//FIN DE LA FUNCIÓN
+  for ( i = 1; i < num ; i ++){
+    if( i % 2 == 0)
+    contadorDePares ++;
+  }
+  alert ("la cantidad de numeros pares son " + contadorDePares ) 
+}
